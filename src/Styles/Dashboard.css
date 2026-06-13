@@ -1,0 +1,87 @@
+.dashboard-container {
+  min-height: 100vh;
+  padding: 40px;
+
+  /* softer dark theme (less eye strain) */
+  background: #0b1220;
+
+  color: #e5e7eb;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* TITLE */
+.dashboard-container h2 {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #f8fafc;
+}
+
+/* SECTION HEADERS */
+.dashboard-container h3 {
+  margin-top: 30px;
+  font-size: 18px;
+  color: #60a5fa;
+  border-left: 4px solid #60a5fa;
+  padding-left: 10px;
+}
+
+/* STATS CARDS */
+.dashboard-container h4 {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  padding: 12px 15px;
+  border-radius: 10px;
+
+  margin: 10px 0;
+
+  backdrop-filter: blur(8px);
+
+  transition: 0.3s;
+}
+
+.dashboard-container h4:hover {
+  transform: translateX(5px);
+  border-color: rgba(96, 165, 250, 0.5);
+}
+
+/* BUTTONS */
+.dashboard-container button {
+  margin: 8px 10px 8px 0;
+  padding: 10px 16px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: rgba(96, 165, 250, 0.15);
+  color: #e5e7eb;
+
+  border: 1px solid rgba(96, 165, 250, 0.3);
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.dashboard-container button:hover {
+  background: #60a5fa;
+  color: #0b1220;
+
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(96, 165, 250, 0.2);
+}
+
+/* HR LINE */
+.dashboard-container hr {
+  border: none;
+  height: 1px;
+
+  background: rgba(255, 255, 255, 0.08);
+  margin: 25px 0;
+}
+
+/* LINK WRAPPER FIX */
+.dashboard-container a {
+  text-decoration: none;
+}

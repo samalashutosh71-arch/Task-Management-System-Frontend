@@ -1,0 +1,107 @@
+.users-container {
+  min-height: 100vh;
+  padding: 30px;
+
+  background: #0b1220;
+  color: #e5e7eb;
+
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* TITLE */
+.users-container h3 {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 20px;
+  color: #f8fafc;
+}
+
+/* SEARCH BOX */
+.users-container input {
+  padding: 10px;
+  width: 250px;
+
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
+
+  background: rgba(255,255,255,0.05);
+  color: white;
+
+  outline: none;
+  margin-right: 10px;
+}
+
+.users-container input:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 10px rgba(96,165,250,0.3);
+}
+
+/* BUTTONS */
+.users-container button {
+  margin: 5px;
+  padding: 8px 14px;
+
+  border: 1px solid rgba(96,165,250,0.3);
+  border-radius: 8px;
+
+  background: rgba(96,165,250,0.15);
+  color: #e5e7eb;
+
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.users-container button:hover {
+  background: #60a5fa;
+  color: #0b1220;
+
+  transform: translateY(-2px);
+}
+
+/* TABLE */
+.users-container table {
+  width: 100%;
+  margin-top: 20px;
+
+  border-collapse: collapse;
+  overflow: hidden;
+
+  background: rgba(255,255,255,0.03);
+  border-radius: 10px;
+}
+
+.users-container th,
+.users-container td {
+  padding: 12px;
+  text-align: center;
+
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.users-container th {
+  background: rgba(96,165,250,0.15);
+  color: #f8fafc;
+}
+
+/* ROW HOVER */
+.users-container tr:hover td {
+  background: rgba(255,255,255,0.05);
+}
+
+/* PAGINATION */
+.users-container span {
+  margin: 0 10px;
+}
+
+.users-container .pagination {
+  margin-top: 15px;
+  text-align: center;
+}
+.users-search {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}

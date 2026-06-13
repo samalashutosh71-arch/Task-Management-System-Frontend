@@ -1,0 +1,102 @@
+.tasks-container {
+  min-height: 100vh;
+  padding: 30px;
+
+  background: #0b1220;
+  color: #e5e7eb;
+
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* TITLE */
+.tasks-container h3 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #f8fafc;
+}
+
+/* FILTER BAR */
+.tasks-container select {
+  padding: 8px;
+  border-radius: 8px;
+
+  background: rgba(255,255,255,0.05);
+  color: white;
+
+  border: 1px solid rgba(255,255,255,0.1);
+  margin-left: 10px;
+}
+
+/* TABLE */
+.tasks-container table {
+  width: 100%;
+  margin-top: 20px;
+
+  border-collapse: collapse;
+
+  background: rgba(255,255,255,0.03);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.tasks-container th,
+.tasks-container td {
+  padding: 12px;
+  text-align: center;
+
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.tasks-container th {
+  background: rgba(96,165,250,0.15);
+  color: #f8fafc;
+}
+
+/* ROW HOVER */
+.tasks-container tr:hover td {
+  background: rgba(255,255,255,0.04);
+}
+
+/* BUTTONS */
+.tasks-container button {
+  margin: 3px;
+  padding: 7px 12px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: rgba(96,165,250,0.15);
+  color: #e5e7eb;
+
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.tasks-container button:hover {
+  background: #60a5fa;
+  color: #0b1220;
+  transform: translateY(-2px);
+}
+
+/* SELECT USER DROPDOWN */
+.tasks-container select {
+  padding: 6px;
+  border-radius: 6px;
+}
+
+/* DEADLINE INFO */
+.tasks-container td div {
+  margin-top: 4px;
+}
+.tasks-container select {
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 🔥 IMPORTANT: option styling fix */
+.tasks-container select option {
+  background-color: #0b1220;
+  color: #ffffff;
+}

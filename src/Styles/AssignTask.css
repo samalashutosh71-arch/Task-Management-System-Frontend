@@ -1,0 +1,86 @@
+.assign-task-container {
+  min-height: 100vh;
+  padding: 30px;
+
+  background: #0b1220;
+  color: #e5e7eb;
+
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* EMPTY STATE TEXT */
+.assign-task-container p {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 40px;
+  color: #94a3b8;
+}
+
+/* TABLE STYLE */
+.assign-task-container table {
+  width: 100%;
+  margin-top: 20px;
+
+  border-collapse: collapse;
+  background: rgba(255,255,255,0.03);
+
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.assign-task-container th,
+.assign-task-container td {
+  padding: 12px;
+  text-align: center;
+
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.assign-task-container th {
+  background: rgba(96,165,250,0.15);
+  color: #f8fafc;
+}
+
+/* ROW HOVER */
+.assign-task-container tr:hover td {
+  background: rgba(255,255,255,0.04);
+}
+
+/* CHECKBOX */
+.assign-task-container input[type="checkbox"] {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+/* DEADLINE INPUT */
+.assign-task-container input[type="datetime-local"] {
+  padding: 6px;
+
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.1);
+
+  background: rgba(255,255,255,0.05);
+  color: white;
+}
+
+/* BUTTON */
+.assign-task-container button {
+  margin-top: 20px;
+  padding: 10px 18px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #38bdf8;
+  color: #0b1220;
+
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.assign-task-container button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(56,189,248,0.3);
+}

@@ -1,0 +1,81 @@
+.reopen-task-container {
+  min-height: 100vh;
+  padding: 30px;
+
+  background: #0b1220;
+  color: #e5e7eb;
+
+  font-family: "Segoe UI", sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* TITLE */
+.reopen-task-container h2 {
+  margin-bottom: 20px;
+  color: #f8fafc;
+}
+
+/* CARD */
+.reopen-task-container {
+  text-align: left;
+}
+
+/* INFO TEXT */
+.reopen-task-container p {
+  width: 400px;
+  padding: 10px;
+
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* INPUTS */
+.reopen-task-container input,
+.reopen-task-container select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.1);
+
+  background: rgba(255,255,255,0.05);
+  color: white;
+
+  outline: none;
+}
+
+/* FOCUS */
+.reopen-task-container input:focus,
+.reopen-task-container select:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 8px rgba(56,189,248,0.3);
+}
+
+/* BUTTON */
+.reopen-task-container button {
+  margin-top: 15px;
+  padding: 10px 20px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #38bdf8;
+  color: #0b1220;
+
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.reopen-task-container button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(56,189,248,0.3);
+}

@@ -1,0 +1,71 @@
+.free-users-container {
+  min-height: 100vh;
+  padding: 30px;
+
+  background: #0b1220;
+  color: #e5e7eb;
+
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* TITLE */
+.free-users-container h3 {
+  text-align: center;
+  margin: 20px 0;
+  color: #f8fafc;
+}
+
+/* FILTER BAR */
+.free-users-container select {
+  padding: 8px;
+  border-radius: 8px;
+
+  background: rgba(255,255,255,0.05);
+  color: white;
+
+  border: 1px solid rgba(255,255,255,0.1);
+
+  margin-left: 10px;
+}
+
+/* LABEL */
+.free-users-container label {
+  color: #cbd5e1;
+}
+
+/* TABLE */
+.free-users-container table {
+  width: 100%;
+  margin-top: 20px;
+
+  border-collapse: collapse;
+
+  background: rgba(255,255,255,0.03);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.free-users-container th,
+.free-users-container td {
+  padding: 12px;
+  text-align: center;
+
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.free-users-container th {
+  background: rgba(96,165,250,0.15);
+  color: #f8fafc;
+}
+
+/* ROW HOVER */
+.free-users-container tr:hover td {
+  background: rgba(255,255,255,0.04);
+}
+
+/* EMPTY STATE */
+.free-users-container p {
+  text-align: center;
+  margin-top: 20px;
+  color: #94a3b8;
+}
