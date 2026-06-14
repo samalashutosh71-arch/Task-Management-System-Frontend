@@ -1,4 +1,6 @@
-const API_BASE = "http://localhost:8080/taskManagementApi/api";
+//const API_BASE = "http://localhost:8080/taskManagementApi/api";
+
+const API_BASE = process.env.REACT_APP_API_BASE; //deploy
 
 // helper function to attach JWT token
 const getAuthHeader = () => {
