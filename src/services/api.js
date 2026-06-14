@@ -1,7 +1,7 @@
 //const API_BASE = "http://localhost:8080/taskManagementApi/api";
 
-const API_BASE = "https://task-management-system-1-tndx.onrender.com/taskManagementApi/api";//deploy vercel
-
+//const API_BASE = "https://task-management-system-1-tndx.onrender.com/taskManagementApi/api";//
+const API_BASE = process.env.REACT_APP_API_BASE;
 // helper function to attach JWT token
 const getAuthHeader = () => {
   const token = localStorage.getItem("token");
