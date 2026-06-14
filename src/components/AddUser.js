@@ -6,6 +6,7 @@ function AddUser() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [role, setRole] = useState("USER");
+  const[users,setUsers]
 
 const handleSubmit = async (e) => {
   e.preventDefault();
