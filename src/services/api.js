@@ -12,6 +12,27 @@ const getAuthHeader = () => {
   };
 };
 
+//==================login===================
+export const loginUser = async (username, password) => {
+  const response = await fetch(`${API_BASE}/auth/login`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      username,
+      password
+    })
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(errorText || "Login failed");
+  }
+
+  return response.json();
+};
+
 // ================= USERS =================
 
 // GET ALL USERS use for assigntask to show all user at a time

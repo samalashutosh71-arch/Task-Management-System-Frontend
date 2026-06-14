@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import "../Styles/Login.css";
-function Login() {
+import { loginUser } from "../services/api";
 
+
+function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -11,75 +13,62 @@ function Login() {
 
   // Redirect if already logged in
   useEffect(() => {
-
-    const token = localStorage.getItem("token"); //save token in localstorage
+    const token = localStorage.getItem("token");
 
     if (token) {
-      const decoded = jwtDecode(token);
-      const role = decoded.role;
-      const userId = decoded.sub;
+      try {
+        const decoded = jwtDecode(token);
+        const role = decoded.role;
+        const userId = decoded.sub;
 
-      if (role === "MANAGER") {
-        navigate("/dashboard", { replace: true });
-      } else {
-        navigate(`/yourtasks/${userId}`, { replace: true });
+        if (role === "MANAGER") {
+          navigate("/dashboard", { replace: true });
+        } else {
+          navigate(`/yourtasks/${userId}`, { replace: true });
+        }
+      } catch (err) {
+        console.error("Invalid token");
+        localStorage.removeItem("token");
       }
     }
-
   }, [navigate]);
 
+  // ================= LOGIN =================
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
+      const data = await loginUser(username, password);
 
-      const response = await fetch("http://localhost:8080/taskManagementApi/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          username: username,
-          password: password
-        })
-      });
-
-      const data = await response.json();
-
-      if (data.token) {
-
-        // store the jwt  token
+      if (data?.token) {
+        // store token
         localStorage.setItem("token", data.token);
 
-        //Decode token
+        // decode token
         const decoded = jwtDecode(data.token);
         const role = decoded.role;
         const userId = decoded.sub;
 
-        //  based on role redirect
+        // redirect based on role
         if (role === "MANAGER") {
           navigate("/dashboard", { replace: true });
         } else {
-          navigate(`/yourtasks/${userId}`, { replace: true }); //history remove replace true
+          navigate(`/yourtasks/${userId}`, { replace: true });
         }
-
       } else {
         alert("Invalid username or password");
       }
-
     } catch (error) {
-      console.error("Login error:", error);
+      console.error("Login error:", error.message);
       alert("Server error. Try again.");
     }
   };
 
   return (
     <div className="login-container">
-
       <h2>Login Page</h2>
 
       <form onSubmit={handleLogin}>
-
         <input
           type="text"
           placeholder="Enter Email"
@@ -99,9 +88,7 @@ function Login() {
         <br /><br />
 
         <button type="submit">Login</button>
-
       </form>
-
     </div>
   );
 }
