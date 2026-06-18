@@ -61,7 +61,6 @@ const newUser={
 
         <select value={role} onChange={(e) => setRole(e.target.value)}>
           <option value="USER">USER</option>
-          <option value="MANAGER">MANAGER</option>
         </select>
 
         <br /><br />

@@ -53,6 +53,16 @@ function AssignTask() {
         return;
       }
     }
+    for (let taskId of selectedTasks) {
+
+  const selectedDate = new Date(deadlines[taskId]);
+
+  if (selectedDate <= new Date()) {
+    alert("Deadline must be after the current date and time");
+    return;
+  }
+
+}
 
     try {
       for (let taskId of selectedTasks) {

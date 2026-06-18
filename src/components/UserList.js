@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { getManagerUserPagination, getTasks, searchUsers } from "../services/api";
+import { deleteUser, getManagerUserPagination, getTasks, searchUsers } from "../services/api";
 import { useNavigate } from "react-router-dom";
 import "../Styles/UserList.css";
 //manager users viewUser
@@ -40,7 +40,24 @@ function UserList() {
     const data = await searchUsers(keyword);//api
     setUsers(data);
   };
+//delete user
+const handleDelete = async (id) => {
+  const confirmDelete = window.confirm(
+    "Are you sure you want to delete this user?"
+  );
 
+  if (!confirmDelete) return;
+
+  try {
+    const msg = await deleteUser(id);
+
+    alert(msg);
+
+    loadUsers(); // refresh table
+  } catch (err) {
+    alert(err.message);
+  }
+};
   // search on Enter key
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
@@ -129,6 +146,11 @@ function UserList() {
     onClick={() => navigate(`/update-user/${user.id}`)}
   >
     Update User
+  </button>
+    <button
+    onClick={() => handleDelete(user.id)}
+  >
+    Delete User
   </button>
 </td>
                 </tr>

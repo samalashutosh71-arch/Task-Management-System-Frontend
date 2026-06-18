@@ -1,7 +1,7 @@
-//const API_BASE = "http://localhost:8080/taskManagementApi/api";
+const API_BASE = "http://localhost:8080/taskManagementApi/api";//internal
 
-//const API_BASE = "https://task-management-system-1-tndx.onrender.com/taskManagementApi/api";//
-const API_BASE = process.env.REACT_APP_API_BASE;
+//const API_BASE = "https://task-management-system-1-tndx.onrender.com/taskManagementApi/api";//for backend deploy check
+//const API_BASE = process.env.REACT_APP_API_BASE;//for full deploy
 // helper function to attach JWT token
 const getAuthHeader = () => {
   const token = localStorage.getItem("token");
@@ -54,7 +54,6 @@ export const getUsers = async (page = 0, size = 5) => {
   return response.json();
 };
 
-// CREATE USER
 export const addUser = async (user) => {
   const response = await fetch(`${API_BASE}/saves/createUser`, {
     method: "POST",
@@ -62,21 +61,29 @@ export const addUser = async (user) => {
     body: JSON.stringify(user)
   });
 
+  const message = await response.text();
+
   if (!response.ok) {
-    const errorData = await response.json();
-    const message = Object.values(errorData).join(", ");
     throw new Error(message);
   }
 
-  return response.json();
+  return message;
 };
 
 // DELETE USER
 export const deleteUser = async (id) => {
-  await fetch(`${API_BASE}/saves/delete/${id}`, {
+  const response = await fetch(`${API_BASE}/saves/delete/${id}`, {
     method: "DELETE",
     headers: getAuthHeader()
   });
+
+  const message = await response.text();
+
+  if (!response.ok) {
+    throw new Error(message);
+  }
+
+  return message;
 };
 
 // GET USER BY ID
@@ -95,7 +102,13 @@ export const updateUser = async (id, user) => {
     body: JSON.stringify(user)
   });
 
-  return response.text();
+  const message= await response.text();
+    if (!response.ok) {
+    throw new Error(message);
+  }
+
+  return message;
+
 };
 //serach manager specific users
 export const searchUsers=async (keyword)=>{
@@ -141,6 +154,7 @@ export const getTasks = async () => {
 };
 
 // CREATE TASK
+
 export const addTask = async (task) => {
   const response = await fetch(`${API_BASE}/tasks/createTask`, {
     method: "POST",
@@ -148,7 +162,13 @@ export const addTask = async (task) => {
     body: JSON.stringify(task)
   });
 
-  return response.json();
+  const message = await response.text();
+
+  if (!response.ok) {
+    throw new Error(message);
+  }
+
+  return message;
 };
 
 // DELETE TASK
@@ -197,6 +217,23 @@ export const assignTask = async (taskId, userId, deadline) => {
 
   if (!response.ok) {
     throw new Error("Failed to assign task");
+  }
+
+  return response.json();
+};
+//chnage owner of task
+export const changeUser = async (taskId, userId) => {
+
+  const response = await fetch(
+    `${API_BASE}/tasks/changeUser/${taskId}/${userId}`,
+    {
+      method: "PUT",
+      headers: getAuthHeader()
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error(await response.text());
   }
 
   return response.json();

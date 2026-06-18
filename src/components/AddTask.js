@@ -7,25 +7,32 @@ function AddTask() {
   const [description, setDescription] = useState("");
   const [status, setStatus] = useState("OPEN");
 
-  const handleSubmit = async (e) => {
+const handleSubmit = async (e) => {
 
-    e.preventDefault();
-//obj
-    const newTask = {
-      title: title,
-      description: description,
-      status: status
-    };
+  e.preventDefault();
+//obl
+  const newTask = {
+    title: title,
+    description: description,
+    status: status
+  };
 
-    await addTask(newTask);
+  try {
 
-    alert("Task added!");
-   //clear box
+    const message = await addTask(newTask);
+
+    alert(message); // backend success message
+
     setTitle("");
     setDescription("");
     setStatus("OPEN");
 
-  };
+  } catch (error) {
+
+    alert(error.message); // backend error message
+
+  }
+};
 
   return (
    <div className="add-task-container">

@@ -29,17 +29,24 @@ function UpdateUser() {
 
   };
 
-  const handleSubmit = async (e) => {
+const handleSubmit = async (e) => {
 
-    e.preventDefault();
+  e.preventDefault();
 
-    await updateUser(id, user);
+  try {
 
-    alert("User Updated Successfully");
+    const message = await updateUser(id, user);
+
+    alert(message);
 
     navigate("/users");
 
-  };
+  } catch (error) {
+
+    alert(error.message);
+
+  }
+};
 
   return (
 

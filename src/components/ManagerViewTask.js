@@ -5,8 +5,8 @@ import "../Styles/TaskList.css";
 import {
   getUserTasks,
   deleteTask,
-  assignTask,
-  getManagerUsers
+  getManagerUsers,
+  changeUser
 } from "../services/api";
 
 function ManagerViewTask() {
@@ -41,18 +41,21 @@ function ManagerViewTask() {
     }
   };
 
-  const handleAssign = async (taskId, userId, deadline, status) => {
+const handleAssign = async (taskId, userId, status) => {
 
-    if (!userId) return;
+  if (!userId) return;
 
-    if (status === "COMPLETED") {
-      alert("Cannot assign completed task");
-      return;
-    }
+  if (status === "COMPLETED") {
+    alert("Cannot change user for a completed task");
+    return;
+  }
 
-    await assignTask(taskId, userId, deadline);
-    loadTasks();
-  };
+  await changeUser(taskId, userId);
+
+  alert("Task reassigned successfully");
+
+  loadTasks();
+};
 
   const handleReopen = (taskId) => {
     navigate(`/reopentasks/${taskId}`);
@@ -88,7 +91,7 @@ function ManagerViewTask() {
               <td>
                 <select
                   onChange={(e) =>
-                    handleAssign(task.id, e.target.value, task.deadline, task.status)
+                    handleAssign(task.id, e.target.value, task.status)
                   }
                   defaultValue=""
                 >
