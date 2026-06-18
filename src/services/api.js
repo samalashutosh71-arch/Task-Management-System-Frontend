@@ -1,7 +1,7 @@
-//const API_BASE = "http://localhost:8080/taskManagementApi/api";//internal
+const API_BASE = "http://localhost:8080/taskManagementApi/api";//internal
 
 //const API_BASE = "https://task-management-system-1-tndx.onrender.com/taskManagementApi/api";//for backend deploy check
-const API_BASE = process.env.REACT_APP_API_BASE;//for full deploy
+//const API_BASE = process.env.REACT_APP_API_BASE;//for full deploy
 // helper function to attach JWT token
 const getAuthHeader = () => {
   const token = localStorage.getItem("token");
